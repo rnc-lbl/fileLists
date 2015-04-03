@@ -11,114 +11,140 @@
 # #############################################
 
 
-baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics/P15ic
-
-outFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/fileLists/picoLists
-
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
-outFolderGIT=${gitBaseFolder}/fileLists/Run14/AuAu/200GeV/picoLists
+fileTypes="picoList  picoD0List"
 
-# ------------------------------------------------------
+for fileType in $fileTypes ; do  
 
-tmpFolder=`mktemp -d`
-mkdir -p ${tmpFolder}/runs
-
-tmpAll=${tmpFolder}/picoList_all.list
-touch $tmpAll
-
-tmpRunList=${tmpFolder}/picoList_runList.list
-touch $tmpRunList
-
-yesterday=`date --date="1 days ago" '+%F'`
-yesterdayFile=${outFolder}/daily/picoList_${yesterday}.list
-
-tmpYesterdayFile=${tmpFolder}/picoList_${yesterday}.list
-touch  $tmpYesterdayFile
-
-# ------------------------------------------------------
-
-for day in `ls ${baseFolder} | sort` ; do 
-
-    if [[ "${day}" = "preview2" ||  "${day}" = "fileLists" ]] ; then
-	continue
+    if [ "${fileType}" = "picoList" ] ; then
+	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics/P15ic
+    elif [ "${fileType}" = "picoD0List" ] ; then
+        baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics/P15ic
+    else
+	exit 0
     fi
 
-    for run in `ls ${baseFolder}/${day} | sort` ; do 
-	nFiles=`ls ${baseFolder}/${day}/${run} | wc -l`
-	if [ $nFiles -eq 0 ] ; then 
+    outFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/fileLists/${fileType}s
+    
+    gitPath=Run14/AuAu/200GeV/${fileType}s
+    outFolderGIT=${gitBaseFolder}/${gitPath}
+
+    # ------------------------------------------------------
+    # -- Create temporary files
+    # ------------------------------------------------------
+    tmpFolder=`mktemp -d`
+    mkdir -p ${tmpFolder}/runs
+
+    tmpAll=${tmpFolder}/${fileType}_all.list
+    touch $tmpAll
+    
+    tmpRunList=${tmpFolder}/${fileType}_runList.list
+    touch $tmpRunList
+    
+    yesterday=`date --date="1 days ago" '+%F'`
+    yesterdayFile=${outFolderGIT}/daily/${fileType}_${yesterday}.list
+    
+    tmpYesterdayFile=${tmpFolder}/${fileType}_${yesterday}.list
+    touch  $tmpYesterdayFile
+    
+    # ------------------------------------------------------
+    # -- Find / loop over files
+    # ------------------------------------------------------
+    for day in `ls ${baseFolder} | sort` ; do 
+	
+	if [[ "${day}" = "preview2" ||  "${day}" = "fileLists" ]] ; then
 	    continue
 	fi
-
-	tmpRun=${tmpFolder}/runs/picoList_${day}_${run}.list
-	runEntry=${outFolder}/runs/picoList_${day}_${run}.list
-	echo ${runEntry} >> ${tmpRunList} 
-
-	find ${baseFolder}/${day}/${run} -name "*.root" | sort > ${tmpRun}
-	cat ${tmpRun} >> ${tmpAll}
+	
+	for run in `ls ${baseFolder}/${day} | sort` ; do 
+	    nFiles=`ls ${baseFolder}/${day}/${run} | wc -l`
+	    if [ $nFiles -eq 0 ] ; then 
+		continue
+	    fi
+	    
+	    tmpRun=${tmpFolder}/runs/${fileType}_${day}_${run}.list
+	    runEntry=${outFolderGIT}/runs/${fileType}_${day}_${run}.list
+	    echo ${runEntry} >> ${tmpRunList} 
+	    
+	    find ${baseFolder}/${day}/${run} -name "*.root" | sort > ${tmpRun}
+	    cat ${tmpRun} >> ${tmpAll}
+	done
     done
-done
+    
+    # ------------------------------------------------------
+    # -- Clean up 1
+    # ------------------------------------------------------
+    if [ "${fileType}" = "picoList" ] ; then
+	cp -r ${tmpAll} ${outFolder}
+	cp -r ${tmpRunList} ${outFolder}
+	cp -r ${tmpFolder}/runs ${outFolder}
+    fi
 
-# ------------------------------------------------------
+    cp -r ${tmpAll} ${outFolderGIT}
+    cp -r ${tmpRunList} ${outFolderGIT}
+    cp -r ${tmpFolder}/runs ${outFolderGIT}
+    
+    # ------------------------------------------------------
+    # -- Create an extra list of new files : "daily"
+    # ------------------------------------------------------
+    if [ ! -f ${yesterdayFile} ] ; then
+	
+	if [ "${fileType}" = "picoList" ] ; then
+	    if [ ! -d ${outFolder}/daily ] ; then
+		mkdir -p ${outFolder}/daily
+	    fi
+	fi
 
-cp -r ${tmpAll} ${outFolder}
-cp -r ${tmpRunList} ${outFolder}
-cp -r ${tmpFolder}/runs ${outFolder}
-
-cp -r ${tmpAll} ${outFolderGIT}
-cp -r ${tmpRunList} ${outFolderGIT}
-cp -r ${tmpFolder}/runs ${outFolderGIT}
-
-# ------------------------------------------------------
-
-if [ ! -f ${yesterdayFile} ] ; then
-
-    if [ ! -d ${outFolder}/daily ] ; then
-	mkdir -p ${outFolder}/daily
+	if [ ! -d ${outFolderGIT}/daily ] ; then
+	    mkdir -p ${outFolderGIT}/daily
+	fi
+	
+	cat ${outFolderGIT}/daily/${fileType}_*.list > ${tmpFolder}/${fileType}UpToYesterday.list
+	
+	while read -r line ; do 
+	    grep ${line} ${tmpFolder}/${fileType}UpToYesterday.list > /dev/null
+	    ret=$?
+	    
+	    if [ ${ret} -eq 0 ] ; then
+		continue
+	    fi
+	    echo $line  >> ${tmpYesterdayFile}
+	    
+	done < <(cat ${tmpAll})
+	if [ "${fileType}" = "picoList" ] ; then
+	    cp -r ${tmpYesterdayFile} ${outFolder}/daily
+	fi
+	cp -r ${tmpYesterdayFile} ${outFolderGIT}/daily
     fi
     
-    if [ ! -d ${outFolderGIT}/daily ] ; then
-	mkdir -p ${outFolderGIT}/daily
+    # ------------------------------------------------------
+    # -- Clean up 2
+    # ----------------------------------------------------
+    rm -rf ${tmpFolder}
+
+    if [ "${fileType}" = "picoList" ] ; then
+	chmod 644 ${outFolder}/*.* 
+	chmod 755 ${outFolder}/runs
+	chmod 644 ${outFolder}/runs/*.* 
     fi
 
-    cat ${outFolder}/daily/picoList_*.list > ${tmpFolder}/picoUpToYesterday.list
+    chmod 644 ${outFolderGIT}/*.* 
+    chmod 755 ${outFolderGIT}/runs
+    chmod 644 ${outFolderGIT}/runs/*.* 
+    
+    # ------------------------------------------------------
+    # -- Commit changes to git
+    # ------------------------------------------------------
+    now=`date '+%F %H-%M'`
+    
+    pushd ${gitBaseFolder}  > /dev/null
+    /usr/bin/git add ${gitPath}
+    /usr/bin/git commit ${gitPath} -m "automatic update ${fileType}s - ${now}"
+    popd > /dev/null
+done
 
-    while read -r line ; do 
-	grep ${line} ${tmpFolder}/picoUpToYesterday.list > /dev/null
-	ret=$?
-	
-	if [ ${ret} -eq 0 ] ; then
-            continue
-	fi
-	echo $line  >> ${tmpYesterdayFile}
-	
-    done < <(cat ${tmpAll})
-
-    cp -r ${tmpYesterdayFile} ${outFolder}/daily
-    cp -r ${tmpYesterdayFile} ${outFolderGIT}/daily
-fi
-
-# ------------------------------------------------------
-# -- Clean Up
-# ----------------------------------------------------
-
-rm -rf ${tmpFolder}
-
-chmod 644 ${outFolder}/*.* 
-chmod 755 ${outFolder}/runs
-chmod 644 ${outFolder}/runs/*.* 
-
-chmod 644 ${outFolderGIT}/*.* 
-chmod 755 ${outFolderGIT}/runs
-chmod 644 ${outFolderGIT}/runs/*.* 
-
-# ------------------------------------------------------
-
-now=`date '+%F %H-%M'`
-
-pushd /global/homes/j/jthaeder/picoDstTransfer/auau200GeVRun14/fileLists > /dev/null
+pushd ${gitBaseFolder}  > /dev/null
 /usr/bin/git pull origin master
-/usr/bin/git add picoLists
-/usr/bin/git commit picoLists -m "update file list - ${now}"
 /usr/bin/git push
 popd > /dev/null
