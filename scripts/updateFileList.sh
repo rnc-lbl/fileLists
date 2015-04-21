@@ -19,8 +19,10 @@ for fileType in $fileTypes ; do
 
     if [ "${fileType}" = "picoList" ] ; then
 	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics/P15ic
+	fileExtensionType=picoDst
     elif [ "${fileType}" = "picoD0List" ] ; then
         baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics/P15ic
+	fileExtensionType=picoD0
     else
 	exit 0
     fi
@@ -67,7 +69,7 @@ for fileType in $fileTypes ; do
 	    runEntry=${outFolderGIT}/runs/${fileType}_${day}_${run}.list
 	    echo ${runEntry} >> ${tmpRunList} 
 	    
-	    find ${baseFolder}/${day}/${run} -name "*.root" | sort > ${tmpRun}
+	    find ${baseFolder}/${day}/${run} -name "*.${fileExtensionType}.root" | sort > ${tmpRun}
 	    cat ${tmpRun} >> ${tmpAll}
 	done
     done
