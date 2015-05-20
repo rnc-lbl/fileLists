@@ -13,7 +13,7 @@
 
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
-fileTypes="picoList  picoD0List"
+fileTypes="picoList picoD0List picoNpeList"
 
 for fileType in $fileTypes ; do  
 
@@ -23,13 +23,11 @@ for fileType in $fileTypes ; do
     elif [ "${fileType}" = "picoD0List" ] ; then
         baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics2/P15ic
 	fileExtensionType=picoD0
+    elif [ "${fileType}" = "picoNpeList" ] ; then
+        baseFolder=/project/projectdirs/starprod/hft/npeTree/Run14/AuAu/200GeV/physics2/P15ic
+	fileExtensionType=picoNpe
     else
 	exit 0
-    fi
-
-    outFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/fileLists/physics2/${fileType}s
-    if [ ! -d $outFolder ] ; then
-        mkdir -p $outFolder
     fi
 
     gitPath=Run14/AuAu/200GeV/physics2/${fileType}s
@@ -37,6 +35,8 @@ for fileType in $fileTypes ; do
     if [ ! -d  $outFolderGIT ] ; then
 	mkdir -p $outFolderGIT
     fi
+
+    touch faulty_files.txt
 
     # ------------------------------------------------------
     # -- Create temporary files
@@ -55,15 +55,14 @@ for fileType in $fileTypes ; do
     
     tmpYesterdayFile=${tmpFolder}/${fileType}_${yesterday}.list
     touch  $tmpYesterdayFile
+
+    tmpFaultyFiles=${tmpFolder}/${fileType}_faulty.list
+    touch  $tmpFaultyFiles
     
     # ------------------------------------------------------
     # -- Find / loop over files
     # ------------------------------------------------------
     for day in `ls ${baseFolder} | sort` ; do 
-	
-	if [[ "${day}" = "preview2" ||  "${day}" = "fileLists" ]] ; then
-	    continue
-	fi
 	
 	for run in `ls ${baseFolder}/${day} | sort` ; do 
 	    nFiles=`ls ${baseFolder}/${day}/${run} | wc -l`
@@ -75,7 +74,9 @@ for fileType in $fileTypes ; do
 	    runEntry=${outFolderGIT}/runs/${fileType}_${day}_${run}.list
 	    echo ${runEntry} >> ${tmpRunList} 
 	    
-	    find ${baseFolder}/${day}/${run} -name "*.${fileExtensionType}.root" | sort > ${tmpRun}
+	    find ${baseFolder}/${day}/${run} -name "*.${fileExtensionType}.root" -type f ! -size 0 | sort > ${tmpRun}
+	    find ${baseFolder}/${day}/${run} -name "*.${fileExtensionType}.root" -type f -size 0 | sort >> ${tmpFaultyFiles}
+
 	    cat ${tmpRun} >> ${tmpAll}
 	done
     done
@@ -83,11 +84,7 @@ for fileType in $fileTypes ; do
     # ------------------------------------------------------
     # -- Clean up 1
     # ------------------------------------------------------
-    if [ "${fileType}" = "picoList" ] ; then
-	cp -r ${tmpAll} ${outFolder}
-	cp -r ${tmpRunList} ${outFolder}
-	cp -r ${tmpFolder}/runs ${outFolder}
-    fi
+    cat  ${tmpFaultyFiles} >> faulty_files.txt
 
     cp -r ${tmpAll} ${outFolderGIT}
     cp -r ${tmpRunList} ${outFolderGIT}
@@ -98,12 +95,6 @@ for fileType in $fileTypes ; do
     # ------------------------------------------------------
     if [ ! -f ${yesterdayFile} ] ; then
 	
-	if [ "${fileType}" = "picoList" ] ; then
-	    if [ ! -d ${outFolder}/daily ] ; then
-		mkdir -p ${outFolder}/daily
-	    fi
-	fi
-
 	if [ ! -d ${outFolderGIT}/daily ] ; then
 	    mkdir -p ${outFolderGIT}/daily
 	fi
@@ -120,22 +111,17 @@ for fileType in $fileTypes ; do
 	    echo $line  >> ${tmpYesterdayFile}
 	    
 	done < <(cat ${tmpAll})
-	if [ "${fileType}" = "picoList" ] ; then
-	    cp -r ${tmpYesterdayFile} ${outFolder}/daily
+
+	nNewFiles=`cat ${tmpYesterdayFile} | wc -l`
+	if [ $nNewFiles -ne 0 ] ; then
+	    cp -r ${tmpYesterdayFile} ${outFolderGIT}/daily
 	fi
-	cp -r ${tmpYesterdayFile} ${outFolderGIT}/daily
     fi
     
     # ------------------------------------------------------
     # -- Clean up 2
     # ----------------------------------------------------
     rm -rf ${tmpFolder}
-
-    if [ "${fileType}" = "picoList" ] ; then
-	chmod 644 ${outFolder}/*.* 
-	chmod 755 ${outFolder}/runs
-	chmod 644 ${outFolder}/runs/*.* 
-    fi
 
     chmod 644 ${outFolderGIT}/*.* 
     chmod 755 ${outFolderGIT}/runs
