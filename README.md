@@ -8,8 +8,18 @@
 File lists at PDSF for picoDsts and Do trees
 
 ## Run14/AuAu/200GeV
-### picoLists
-	Lists of picoDsts
+  
+### physics2
+    Second production of picoDsts for this data set 
 
-### picoD0Lists
-    Lists of D0 trees
+#### picoLists
+     Lists of picoDsts
+
+#### picoD0Lists
+     Lists of D0 trees
+
+#### picoNpeLists
+     Lists of NPE trees
+
+### physics
+    Old production - depricated
