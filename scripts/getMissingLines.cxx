@@ -38,8 +38,6 @@ int main(int argc, char** argv)
   ifstream fsSubsetFiles(argv[1]);
   if(fsSubsetFiles.is_open())
   {
-    cout<<"Hashing first file..."<<endl;
-
     string line;
     while(getline(fsSubsetFiles,line))
     {
@@ -58,8 +56,6 @@ int main(int argc, char** argv)
   ifstream fsAllFiles(argv[2]);
   if(fsAllFiles.is_open())
   {
-    cout<<"Checking which lines don't exist..."<<endl;
-
     string line;
     while(getline(fsAllFiles,line))
     {
