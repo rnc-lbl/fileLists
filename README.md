@@ -20,6 +20,3 @@ File lists at PDSF for picoDsts and Do trees
 
 #### picoNpeLists
      Lists of NPE trees
-
-### physics
-    Old production - depricated
