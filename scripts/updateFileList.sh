@@ -13,7 +13,7 @@
 
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
-fileTypes="picoList picoD0List picoNpeList"
+fileTypes="picoList picoD0List picoNpeList kfVertexList picoD0KfList"
 
 for fileType in $fileTypes ; do  
 
@@ -22,6 +22,12 @@ for fileType in $fileTypes ; do
 	fileExtensionType=picoDst
     elif [ "${fileType}" = "picoD0List" ] ; then
         baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics2/P15ic
+	fileExtensionType=picoD0
+    elif [ "${fileType}" = "kfVertexList" ] ; then
+	baseFolder=/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic
+	fileExtensionType=kfVertex
+    elif [ "${fileType}" = "picoD0KfList" ] ; then
+	baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/kfProd2/P15ic
 	fileExtensionType=picoD0
     elif [ "${fileType}" = "picoNpeList" ] ; then
         baseFolder=/project/projectdirs/starprod/hft/npeTree/Run14/AuAu/200GeV/physics2/P15ic
