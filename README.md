@@ -16,7 +16,13 @@ File lists at PDSF for picoDsts and Do trees
      Lists of picoDsts
 
 #### picoD0Lists
-     Lists of D0 trees
+     Lists of D0 trees (version 2)
+
+#### picoD0KfLists
+     Lists of D0 trees (version 3) ready to use wit KF vertices
+
+#### kfVertexLists
+     Lists of KF vertices
 
 #### picoNpeLists
      Lists of NPE trees
