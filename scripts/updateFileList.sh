@@ -16,6 +16,7 @@ gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 fileTypes="picoList picoD0List picoNpeList kfVertexList picoD0KfList"
 
 for fileType in $fileTypes ; do  
+    echo "Processing: $fileType"
 
     if [ "${fileType}" = "picoList" ] ; then
 	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic
@@ -69,7 +70,6 @@ for fileType in $fileTypes ; do
     # -- Find / loop over files
     # ------------------------------------------------------
     for day in `ls ${baseFolder} | sort` ; do 
-	
 	for run in `ls ${baseFolder}/${day} | sort` ; do 
 	    nFiles=`ls ${baseFolder}/${day}/${run} | wc -l`
 	    if [ $nFiles -eq 0 ] ; then 
