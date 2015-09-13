@@ -1,3 +1,4 @@
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_0000007.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_1000001.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_1000011.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_1000013.kfVertex.root
@@ -60,6 +61,7 @@
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_2500044.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_2500048.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_2500049.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_2500054.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_3000001.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_3000013.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_3000017.kfVertex.root
@@ -106,6 +108,7 @@
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4000044.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4000047.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4000050.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4000053.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4500001.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4500011.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_4500016.kfVertex.root
@@ -153,4 +156,23 @@
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_5500045.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_5500051.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_15112004_raw_5500052.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_1000005.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_1000037.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_1500005.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_1500037.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_2000008.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_2000038.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_2500005.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_2500037.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_3000006.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_3000036.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_3500010.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_3500039.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_4000008.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_4000036.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_4500009.kfVertex.root
 /project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_4500038.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_5000007.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_5000038.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_5500005.kfVertex.root
+/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic/112/15112004/st_physics_adc_15112004_raw_5500037.kfVertex.root
