@@ -10,6 +10,9 @@
 #
 # #############################################
 
+if [ -f /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic/st_physics_15140004_raw_1000016.picoDst.root ] ; then 
+    rm /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic/st_physics_15140004_raw_1000016.picoDst.root
+fi
 
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
