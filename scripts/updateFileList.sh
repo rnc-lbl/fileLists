@@ -10,37 +10,40 @@
 #
 # #############################################
 
-if [ -f /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic/st_physics_15140004_raw_1000016.picoDst.root ] ; then 
-    rm /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic/st_physics_15140004_raw_1000016.picoDst.root
+prodId=P16id
+
+if [ -f /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}/st_physics_15140004_raw_1000016.picoDst.root ] ; then 
+    rm /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}/st_physics_15140004_raw_1000016.picoDst.root
 fi
 
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
-fileTypes="picoList picoD0List picoNpeList kfVertexList picoD0KfList"
+#fileTypes="picoList picoD0List picoNpeList kfVertexList picoD0KfList"
+fileTypes="picoList kfVertexList picoD0KfList"
 
 for fileType in $fileTypes ; do  
     echo "Processing: $fileType"
 
     if [ "${fileType}" = "picoList" ] ; then
-	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P15ic
+	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}
 	fileExtensionType=picoDst
     elif [ "${fileType}" = "picoD0List" ] ; then
-        baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics2/P15ic
+        baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/physics2/${prodId}
 	fileExtensionType=picoD0
     elif [ "${fileType}" = "kfVertexList" ] ; then
-	baseFolder=/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/P15ic
+	baseFolder=/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/${prodId}
 	fileExtensionType=kfVertex
     elif [ "${fileType}" = "picoD0KfList" ] ; then
-	baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/kfProd2/P15ic
+	baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/kfProd2/${prodId}
 	fileExtensionType=picoD0
     elif [ "${fileType}" = "picoNpeList" ] ; then
-        baseFolder=/project/projectdirs/starprod/hft/npeTree/Run14/AuAu/200GeV/physics2/P15ic
+        baseFolder=/project/projectdirs/starprod/hft/npeTree/Run14/AuAu/200GeV/physics2/${prodId}
 	fileExtensionType=picoNpe
     else
 	exit 0
     fi
 
-    gitPath=Run14/AuAu/200GeV/physics2/${fileType}s
+    gitPath=Run14/AuAu/200GeV/physics2/${prodId}/${fileType}s
     outFolderGIT=${gitBaseFolder}/${gitPath}
     if [ ! -d  $outFolderGIT ] ; then
 	mkdir -p $outFolderGIT
