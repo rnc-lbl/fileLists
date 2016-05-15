@@ -1,4 +1,5 @@
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_0000008.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1000001.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1000004.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1000006.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1000022.picoDst.root
@@ -34,6 +35,7 @@
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1500044.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1500049.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1500050.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_1500052.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_2000001.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_2000010.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_2000013.picoDst.root
@@ -138,6 +140,7 @@
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_4500045.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_4500048.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_4500050.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_4500051.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000002.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000011.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000015.picoDst.root
@@ -152,6 +155,8 @@
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000040.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000042.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000043.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000047.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5000048.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500001.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500014.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500017.picoDst.root
@@ -167,17 +172,22 @@
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500044.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500048.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_15110011_raw_5500052.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_1000009.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_1000040.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_1000061.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_1500005.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_1500035.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2000004.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2000037.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2000055.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2500005.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2500037.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_2500058.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_3000004.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_3000036.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_3500008.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_3500037.picoDst.root
+/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_3500057.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_4000008.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_4000036.picoDst.root
 /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/P16id/110/15110011/st_physics_adc_15110011_raw_4500009.picoDst.root
