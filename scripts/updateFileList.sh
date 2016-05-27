@@ -10,8 +10,6 @@
 #
 # #############################################
 
-prodId=P16id
-picoId=Pico16a
 
 if [ -f /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}/st_physics_15140004_raw_1000016.picoDst.root ] ; then 
     rm /project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}/st_physics_15140004_raw_1000016.picoDst.root
@@ -19,35 +17,47 @@ fi
 
 gitBaseFolder=/global/homes/j/jthaeder/picoDstTransfer/fileLists/
 
-#fileTypes="picoList picoD0List picoNpeList kfVertexList picoD0KfList"
-fileTypes="picoList picoD0List picoNpeList"
+prodTypes="picoList_14_200 picoList_14_14.5 picoD0List picoNpeList"
 
-for fileType in $fileTypes ; do  
-    echo "Processing: $fileType"
 
-    if [ "${fileType}" = "picoList" ] ; then
-	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/200GeV/physics2/${prodId}
+for prodType in $prodTypes ; do  
+    echo "Processing: $prodType"
+
+    if [ "${prodType}" = "picoList_14_200" ] ; then
+	fileType=picoList
 	fileExtensionType=picoDst
-	outProdId=physics2
-    elif [ "${fileType}" = "picoD0List" ] ; then
-        baseFolder=/project/projectdirs/starprod/hft/Run14/AuAu/200GeV/${picoId}/${prodId}/D0
+ 	prodId=P16id
+	picoId=physics2
+	energy=200GeV
+	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/${energy}/${picoId}/${prodId}
+
+    elif [ "${prodType}" = "picoList_14_14.5" ] ; then
+	fileType=picoList
+	fileExtensionType=picoDst
+ 	prodId=P14ii
+	picoId=Pico16b
+	energy=15GeV
+	baseFolder=/project/projectdirs/starprod/picodsts/Run14/AuAu/${energy}/${picoId}/${prodId}
+    elif [ "${prodType}" = "picoD0List" ] ; then
+	fileType=picoD0List
 	fileExtensionType=picoD0
-	outProdId=${picoId}
-#    elif [ "${fileType}" = "kfVertexList" ] ; then
-#	baseFolder=/project/projectdirs/starprod/hft/kfVertex/Run14/AuAu/200GeV/physics2/${prodId}
-#	fileExtensionType=kfVertex
-#    elif [ "${fileType}" = "picoD0KfList" ] ; then
-#	baseFolder=/project/projectdirs/starprod/hft/d0tree/Run14/AuAu/200GeV/kfProd2/${prodId}
-#	fileExtensionType=picoD0
-    elif [ "${fileType}" = "picoNpeList" ] ; then
-        baseFolder=/project/projectdirs/starprod/hft/Run14/AuAu/200GeV/${picoId}/${prodId}/NPE
+ 	prodId=P16id
+	picoId=Pico16a
+	energy=200GeV
+        baseFolder=/project/projectdirs/starprod/hft/Run14/AuAu/${energy}/${picoId}/${prodId}/D0
+
+    elif [ "${prodType}" = "picoNpeList" ] ; then
+	fileType=picoNpeList
 	fileExtensionType=picoNpe
-	outProdId=${picoId}
+ 	prodId=P16id
+	picoId=Pico16a
+	energy=200GeV
+        baseFolder=/project/projectdirs/starprod/hft/Run14/AuAu/${energy}/${picoId}/${prodId}/NPE
     else
 	exit 0
     fi
 
-    gitPath=Run14/AuAu/200GeV/${outProdId}/${prodId}/${fileType}s
+    gitPath=Run14/AuAu/${energy}/${picoId}/${prodId}/${fileType}s
     outFolderGIT=${gitBaseFolder}/${gitPath}
     if [ ! -d  $outFolderGIT ] ; then
 	mkdir -p $outFolderGIT
